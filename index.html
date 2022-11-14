@@ -8,40 +8,42 @@
         Press any key to get the javascript event keycode
       </h2>
     </div>
-    <h1 id="header">
-      null
-    </h1>
-    <div class="containers">
-      <p class="labels">
-        event.key
-      </p>
-      <p class="keys" id="key">
+    <div id="wrapper">
+      <h1 id="header">
         null
-      </p>
-    </div>
-    <div class="containers">
-      <p class="labels">
-        event.location
-      </p>
-      <p class="keys" id="location">
-        null
-      </p>
-    </div>
-    <div class="containers">
-      <p class="labels">
-        event.which
-      </p>
-      <p class="keys" id="which">
-        null
-      </p>
-    </div>
-    <div class="containers">
-      <p class="labels">
-        event.code
-      </p>
-      <p class="keys" id="code">
-        null
-      </p>
+      </h1>
+      <div class="containers">
+        <p class="labels">
+          event.key
+        </p>
+        <p class="keys" id="key">
+          null
+        </p>
+      </div>
+      <div class="containers">
+        <p class="labels">
+          event.location
+        </p>
+        <p class="keys" id="location">
+          null
+        </p>
+      </div>
+      <div class="containers">
+        <p class="labels">
+          event.which
+        </p>
+        <p class="keys" id="which">
+          null
+        </p>
+      </div>
+      <div class="containers">
+        <p class="labels">
+          event.code
+        </p>
+        <p class="keys" id="code">
+          null
+        </p>
+      </div>
     </div>
   </body>
   <style>
@@ -77,6 +79,9 @@
       height: 150px;
       background-color: #383838;
     }
+    #wrapper {
+      display:none;
+    }
   </style>
   <script>
     var message = document.querySelector('#message');
@@ -85,7 +90,12 @@
     var which = document.querySelector('#which');
     var code = document.querySelector('#code');
     var header = document.querySelector('#header');
+    var wrap = document.querySelector('#wrapper');
     function show(e){
+      wrap.style.display = 'block';
+      wrap.style.width = window.innerWidth;
+      wrap.style.height = window.innerHeight;
+      document.body.style.margin = 0;
       e.preventDefault();
       message.remove();
       key.innerHTML = e.key;
